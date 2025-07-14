@@ -1,0 +1,6 @@
+frontend/
+├── index.html
+├── book.html
+├── admin.html
+└── assets/
+    └── styles.css (optional - for common styles)

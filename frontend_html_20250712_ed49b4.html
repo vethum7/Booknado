@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booknado - Read Free Web Novels</title>
+  <style>
+    :root {
+      --primary: #4e73df;
+      --secondary: #6c757d;
+      --dark: #2e3a59;
+      --light: #f8f9fc;
+      --success: #1cc88a;
+      --danger: #e74a3b;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f7fa;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 15px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    .search-bar {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 20px;
+    }
+    
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 30px;
+      border: none;
+    }
+    
+    .user-actions a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+    
+    .ad-banner {
+      background: #f8f9fc;
+      text-align: center;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 1px dashed #ddd;
+    }
+    
+    .section-title {
+      margin: 25px 0 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      color: var(--dark);
+    }
+    
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .book-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .book-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .book-cover {
+      height: 250px;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+    }
+    
+    .book-info {
+      padding: 15px;
+    }
+    
+    .book-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    
+    .book-author {
+      color: var(--secondary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    
+    .book-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .footer-section {
+      flex: 1;
+    }
+    
+    .footer-title {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links a {
+      display: block;
+      color: #ddd;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <i>🌪️</i> Booknado
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search for novels...">
+        </div>
+        <div class="user-actions">
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="container">
+    <div class="ad-banner" id="header-ad">
+      [Header Advertisement]
+    </div>
+    
+    <section>
+      <h2 class="section-title">Popular Novels</h2>
+      <div class="books-grid" id="popular-books">
+        <!-- Books will be loaded here -->
+      </div>
+    </section>
+    
+    <section>
+      <h2 class="section-title">Recently Added</h2>
+      <div class="books-grid" id="recent-books">
+        <!-- Books will be loaded here -->
+      </div>
+    </section>
+    
+    <div class="ad-banner" id="footer-ad">
+      [Footer Advertisement]
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Booknado</h3>
+          <p>Your ultimate destination for free web novels. Read anytime, anywhere.</p>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">Library</a>
+            <a href="#">Genres</a>
+            <a href="#">Top Novels</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Legal</h3>
+          <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">DMCA</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2023 Booknado. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sample book data (will be replaced with API call)
+    const books = [
+      {
+        id: 1,
+        title: "The Mage's Rebirth",
+        author: "Elena Starweaver",
+        chapters: 24,
+        coverColor: "#6a11cb"
+      },
+      {
+        id: 2,
+        title: "Chronicles of the Void",
+        author: "Marcus Orion",
+        chapters: 42,
+        coverColor: "#2575fc"
+      },
+      {
+        id: 3,
+        title: "Whispers of the Forgotten",
+        author: "Lily Nightshade",
+        chapters: 18,
+        coverColor: "#1cc88a"
+      },
+      {
+        id: 4,
+        title: "Dragon's Legacy",
+        author: "Kaelen Fireheart",
+        chapters: 36,
+        coverColor: "#e74a3b"
+      },
+      {
+        id: 5,
+        title: "Sands of Destiny",
+        author: "Amir Al-Farid",
+        chapters: 29,
+        coverColor: "#f6c23e"
+      },
+      {
+        id: 6,
+        title: "Necropolis Rising",
+        author: "Vesper Darkwater",
+        chapters: 31,
+        coverColor: "#4e73df"
+      }
+    ];
+
+    // Render books to the grid
+    function renderBooks(containerId, books) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      
+      books.forEach(book => {
+        const bookCard = document.createElement('div');
+        bookCard.className = 'book-card';
+        bookCard.innerHTML = `
+          <a href="book.html?id=${book.id}">
+            <div class="book-cover" style="background-color: ${book.coverColor}">
+              ${book.title.substring(0, 2)}
+            </div>
+            <div class="book-info">
+              <div class="book-title">${book.title}</div>
+              <div class="book-author">${book.author}</div>
+              <div class="book-stats">
+                <span>Chapters: ${book.chapters}</span>
+                <span>★ 4.5</span>
+              </div>
+            </div>
+          </a>
+        `;
+        container.appendChild(bookCard);
+      });
+    }
+
+    // Load books on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBooks('popular-books', books);
+      renderBooks('recent-books', [...books].reverse());
+    });
+  </script>
+</body>
+</html>

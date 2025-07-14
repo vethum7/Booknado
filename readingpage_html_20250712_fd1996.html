@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading - Booknado</title>
+  <style>
+    :root {
+      --primary: #4e73df;
+      --secondary: #6c757d;
+      --dark: #2e3a59;
+      --light: #f8f9fc;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      color: #333;
+      background-color: #f5f7fa;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 15px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    .breadcrumb {
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .ad-banner {
+      background: #f8f9fc;
+      text-align: center;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 1px dashed #ddd;
+    }
+    
+    .reading-container {
+      display: flex;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    
+    .reading-content {
+      flex: 3;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar {
+      flex: 1;
+    }
+    
+    .book-header {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .book-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    .book-meta {
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .chapter-title {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+    
+    .chapter-content {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-top: 1px solid #eee;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      opacity: 0.9;
+    }
+    
+    .btn:disabled {
+      background: var(--secondary);
+      cursor: not-allowed;
+    }
+    
+    .chapter-list {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .chapter-list-title {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .chapters {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    
+    .chapter-item {
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+    }
+    
+    .chapter-item:hover {
+      background: #f9f9f9;
+    }
+    
+    .chapter-item.active {
+      background: #e6f0ff;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .ad-sidebar {
+      background: #f8f9fc;
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px dashed #ddd;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <i>🌪️</i> Booknado
+        </div>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> > 
+          <a href="#">Fantasy</a> > 
+          <span>The Mage's Rebirth</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="ad-banner" id="header-ad">
+      [Header Advertisement]
+    </div>
+    
+    <div class="reading-container">
+      <div class="reading-content">
+        <div class="book-header">
+          <h1 class="book-title">The Mage's Rebirth</h1>
+          <div class="book-meta">by Elena Starweaver | Fantasy | Ongoing</div>
+        </div>
+        
+        <h2 class="chapter-title" id="chapter-title">Chapter 1: The Awakening</h2>
+        
+        <div class="chapter-content" id="chapter-content">
+          <p>The tower bells rang twelve times, each chime echoing through the cold stone corridors of the Arcanium. Lyra stirred in her sleep, the visions already beginning to fade like morning mist. She had seen it again - the crimson sky, the shattered moon, and the shadow that consumed everything in its path.</p>
+          <p>She sat up abruptly, her thin blanket falling to the floor. The dormitory was quiet except for the soft breathing of the other apprentices. Moonlight streamed through the narrow window, casting long shadows across the room.</p>
+          <p>"Not again," she whispered, pressing her palms against her temples. The headaches always followed the dreams. Ever since her thirteenth birthday, the visions had come with increasing frequency, each more vivid than the last.</p>
+          <p>As she rose from her cot, a strange warmth spread through her chest. Lyra looked down in surprise to see a faint golden glow emanating from beneath her nightshirt. With trembling fingers, she pulled out the amulet - her only inheritance from the parents she never knew.</p>
+          <p>The simple silver disc, usually cold to the touch, was now warm and pulsating with light. Strange symbols along its edge, which had always appeared as mere decorations, now seemed to shift and rearrange themselves before her eyes.</p>
+          <p>A sudden knock at the door made her jump. "Lyra? Are you awake?" Master Theron's voice was low but urgent.</p>
+          <p>She quickly tucked the amulet away. "Y-yes, Master."</p>
+          <p>The door opened silently, and the tall, gaunt form of the Arcanium's head mage filled the doorway. His usually composed features were tight with concern. "Come with me, child. The Council has called for you."</p>
+          <p>Lyra's blood ran cold. Apprentices were summoned before the Council only in matters of grave importance - or severe transgression. "Master? What have I done?"</p>
+          <p>Theron's expression softened slightly. "Nothing, child. But the stars have shifted in ways not seen for a thousand years. The prophecy is awakening... and we believe you are at the center of it."</p>
+          <p>As she followed him through the torch-lit corridors, Lyra couldn't shake the feeling that her life was about to change forever. The amulet burned against her chest, a silent confirmation of the destiny that awaited her.</p>
+        </div>
+        
+        <div class="chapter-nav">
+          <button class="btn" id="prev-btn">← Previous Chapter</button>
+          <button class="btn" id="next-btn">Next Chapter →</button>
+        </div>
+      </div>
+      
+      <div class="sidebar">
+        <div class="chapter-list">
+          <h3 class="chapter-list-title">Chapters</h3>
+          <div class="chapters" id="chapters-list">
+            <!-- Chapters will be loaded here -->
+          </div>
+        </div>
+        
+        <div class="ad-sidebar" id="sidebar-ad">
+          [Sidebar Advertisement]
+        </div>
+      </div>
+    </div>
+    
+    <div class="ad-banner" id="footer-ad">
+      [Footer Advertisement]
+    </div>
+  </div>
+
+  <script>
+    // Sample chapter data
+    const chapters = [
+      { id: 1, title: "Chapter 1: The Awakening", date: "2023-06-15" },
+      { id: 2, title: "Chapter 2: The Arcanium Council", date: "2023-06-18" },
+      { id: 3, title: "Chapter 3: The Prophecy Revealed", date: "2023-06-22" },
+      { id: 4, title: "Chapter 4: First Lessons", date: "2023-06-25" },
+      { id: 5, title: "Chapter 5: The Hidden Library", date: "2023-06-29" },
+      { id: 6, title: "Chapter 6: A Dangerous Discovery", date: "2023-07-03" },
+      { id: 7, title: "Chapter 7: Shadows in the Night", date: "2023-07-07" },
+      { id: 8, title: "Chapter 8: The Forbidden Section", date: "2023-07-12" },
+      { id: 9, title: "Chapter 9: The Amulet's Secret", date: "2023-07-16" },
+      { id: 10, title: "Chapter 10: A Friend's Betrayal", date: "2023-07-20" }
+    ];
+
+    // Render chapters list
+    function renderChapters() {
+      const container = document.getElementById('chapters-list');
+      container.innerHTML = '';
+      
+      chapters.forEach(chapter => {
+        const chapterEl = document.createElement('div');
+        chapterEl.className = 'chapter-item';
+        if (chapter.id === 1) chapterEl.classList.add('active');
+        chapterEl.innerHTML = `
+          <div><strong>${chapter.title}</strong></div>
+          <div style="font-size: 0.8rem; color: #666;">${chapter.date}</div>
+        `;
+        chapterEl.addEventListener('click', () => {
+          document.querySelectorAll('.chapter-item').forEach(el => {
+            el.classList.remove('active');
+          });
+          chapterEl.classList.add('active');
+          document.getElementById('chapter-title').textContent = chapter.title;
+        });
+        container.appendChild(chapterEl);
+      });
+    }
+
+    // Set up navigation
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      alert('Previous chapter');
+    });
+    
+    document.getElementById('next-btn').addEventListener('click', () => {
+      alert('Next chapter');
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', renderChapters);
+  </script>
+</body>
+</html>
